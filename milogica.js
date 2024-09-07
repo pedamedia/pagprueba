@@ -20,7 +20,7 @@ function sendRequest() {
     const email = document.getElementById('idcorreo').value;
 
     // Crear una solicitud POST al backend
-    fetch('https://paginotacode-141848962847.us-central1.run.app', {
+    fetch('https://pruebaweb-9k7v.onrender.com/data', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -32,11 +32,11 @@ function sendRequest() {
                                 correo: email
                             })
     }   
-    ).then(response => response.json()
+    ).then(response => response.text()
     ).then(data => {
         // Mostrar la respuesta del backend en el elemento con id 'response'
-        //document.getElementById('idrespuesta').innerText = data;
-
+        document.getElementById('idrespuesta').innerText = data;
+        /*
         if (Array.isArray(data)) {
             data.forEach(item => {
                 console.log('Elemento de la lista:', item);
@@ -49,12 +49,11 @@ function sendRequest() {
         } else {
             console.error('La respuesta no es una lista.');
         }
+        */
     }
     ).catch(error => {
         console.error('Error:', error);
     });
-
-    
 }
 
 function agrandar(){
